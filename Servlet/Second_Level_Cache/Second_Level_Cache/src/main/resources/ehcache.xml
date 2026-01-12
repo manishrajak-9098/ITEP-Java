@@ -1,0 +1,24 @@
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:noNamespaceSchemaLocation="http://ehcache.org/ehcache.xsd">
+
+    <!-- Disk store -->
+    <diskStore path="java.io.tmpdir"/>
+
+    <!-- Default cache (fallback) -->
+    <defaultCache
+            maxEntriesLocalHeap="1000"
+            statistics="true"
+            eternal="false"
+            timeToIdleSeconds="300"
+            timeToLiveSeconds="600"
+            overflowToDisk="true"/>
+
+    <!-- Explicit cache for Employee entity -->
+    <cache name="com.entity.Employee"
+           maxEntriesLocalHeap="500"
+           statistics="true"
+           eternal="false"
+           timeToIdleSeconds="300"
+           timeToLiveSeconds="600"
+           overflowToDisk="true"/>
+</ehcache>

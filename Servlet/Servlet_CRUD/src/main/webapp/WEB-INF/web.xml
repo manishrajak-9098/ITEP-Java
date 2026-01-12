@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd" id="WebApp_ID" version="5.0">
+  <display-name>3_itep_servlet_CRUD</display-name>
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+  </welcome-file-list>
+  
+  <servlet>
+  	<servlet-name>RegistrationServlet</servlet-name>
+  	<servlet-class>com.servlet.controller.RegistrationServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>RegistrationServlet</servlet-name>
+  	<url-pattern>/RegistrationServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<servlet-class>com.servlet.controller.LoginServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LoginServlet</servlet-name>
+  	<url-pattern>/LoginServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>ProfileServlet</servlet-name>
+  	<servlet-class>com.servlet.controller.ProfileServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ProfileServlet</servlet-name>
+  	<url-pattern>/ProfileServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>UpdateProfileForm</servlet-name>
+  	<servlet-class>com.servlet.controller.UpdateProfileForm</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateProfileForm</servlet-name>
+  	<url-pattern>/UpdateProfileForm</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<servlet-class>com.servlet.controller.UpdateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>UpdateServlet</servlet-name>
+  	<url-pattern>/UpdateServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<servlet-class>com.servlet.controller.LogoutServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>LogoutServlet</servlet-name>
+  	<url-pattern>/LogoutServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>DeActivateServlet</servlet-name>
+  	<servlet-class>com.servlet.controller.DeActivateServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>DeActivateServlet</servlet-name>
+  	<url-pattern>/DeActivateServlet</url-pattern>
+  </servlet-mapping>
+
+  <servlet>
+  	<servlet-name>ViewAllUsersServlet</servlet-name>
+  	<servlet-class>com.servlet.controller.ViewAllUsersServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>ViewAllUsersServlet</servlet-name>
+  	<url-pattern>/ViewAllUsersServlet</url-pattern>
+  </servlet-mapping>
+  
+  
+  
+</web-app>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Servlet CRUD - Add Task</title>
+</head>
+<body>
+
+<div>
+    <h2>Add Task</h2>
+
+    <form action="AddServletTask" method="post">
+        <input
+            type="text"
+            name="category"
+            placeholder="Enter Category"
+            required
+        >
+        <br><br>
+        <input
+            type="text"
+            name="task"
+            placeholder="Enter Task"
+            required
+        >
+        <br><br>
+        <select name="priority" required>
+            <option value="">Select Priority</option>
+            <option value="Low">Low</option>
+            <option value="Medium">Medium</option>
+            <option value="High">High</option>
+        </select>
+        <br><br>
+
+        <input
+            type="submit"
+            value="Add Task"
+        >
+    </form>
+</div>
+
+</body>
+</html>

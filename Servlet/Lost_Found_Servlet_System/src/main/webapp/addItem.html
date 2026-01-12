@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Add Item</title>
+    <link rel="stylesheet" href="">
+</head>
+<body>
+
+<div class="card">
+    <h2>Add Lost / Found Item</h2>
+
+    <form action="AddItemServlet" method="post">
+        <input type="text" name="username" placeholder="Username" required>
+        <input type="email" name="email" placeholder="Email" required>
+        <input type="text" name="itemName" placeholder="Item Name" required>
+        <input type="text" name="location" placeholder="Location" required>
+        <input type="date" name="itemDate" required>
+        <input type="tel" name="contact" placeholder="Contact Number" required>
+        <select name="status" required>
+            <option value="">Select Status</option>
+            <option value="Lost">Lost</option>
+            <option value="Found">Found</option>
+        </select>
+        <textarea name="description" placeholder="Item Description" required></textarea>
+        <button type="submit">Add Item</button>
+    </form>
+    <a href="HomeServlet">Back to Dashboard</a>
+</div>
+
+</body>
+</html>
