@@ -12,23 +12,27 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.HttpSession;
 
-
 @WebServlet("/LoginServlet")
 public class LoginServlet extends HttpServlet {
-    protected void doPost(HttpServletRequest req, HttpServletResponse res) throws IOException, ServletException {
-        String email = req.getParameter("email");
-        String pass = req.getParameter("password");
 
-        User u = UserDao.login(email, pass);
+    protected void doPost(HttpServletRequest req, HttpServletResponse res)
+            throws IOException, ServletException {
+
+        String email = req.getParameter("email");
+        String password = req.getParameter("password");
+
+        User u = UserDao.login(email, password);
+
         if (u != null) {
             HttpSession session = req.getSession();
             session.setAttribute("user", u);
 
-            if (u.getRole().equals("DONOR")) {
+            if ("DONOR".equals(u.getRole())) {
                 res.sendRedirect("donarDashboard.jsp");
-            } else {
-               
+            } else if ("NGO".equals(u.getRole())) {
                 res.sendRedirect("ViewFoodServlet");
+            } else {
+                res.sendRedirect("login.jsp?error=role");
             }
         } else {
             res.sendRedirect("login.jsp?error=invalid");

@@ -11,11 +11,13 @@ import jakarta.servlet.http.HttpServletResponse;
 
 @WebServlet("/CollectFoodServlet")
 public class CollectFoodServlet extends HttpServlet {
- protected void doGet(HttpServletRequest req, HttpServletResponse res)
-        throws IOException {
 
-    int id = Integer.parseInt(req.getParameter("id"));
-    FoodDao.updateStatus(id, "COLLECTED");
-    res.sendRedirect("ngoDashboard.jsp");
- }
+    protected void doGet(HttpServletRequest req, HttpServletResponse res)
+            throws IOException {
+
+        int foodId = Integer.parseInt(req.getParameter("id"));
+        FoodDao.updateStatus(foodId, "COLLECTED");
+
+        res.sendRedirect("ViewFoodServlet");
+    }
 }

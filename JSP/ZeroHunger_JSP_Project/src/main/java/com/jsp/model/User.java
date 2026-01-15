@@ -6,6 +6,7 @@ public class User {
     private String email;
     private String password;
     private String role;
+    
 	public int getUserId() {
 		return userId;
 	}
@@ -36,6 +37,5 @@ public class User {
 	public void setRole(String role) {
 		this.role = role;
 	}
-
 
 }
