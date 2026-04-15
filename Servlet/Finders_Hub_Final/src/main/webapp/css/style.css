@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+:root {
+    --primary: #6366f1;
+    --primary-dark: #4f46e5;
+    --secondary: #8b5cf6;
+    --dark: #0f172a;
+    --bg-light: #f8fafc;
+    --white: #ffffff;
+    --text-main: #1e293b;
+    --text-muted: #64748b;
+    --border: #e2e8f0;
+    --shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.12);
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Plus Jakarta Sans', sans-serif; }
+body { background-color: var(--bg-light); color: var(--text-main); min-height: 100vh; display: flex; flex-direction: column; }
+
+/* Navbar */
+.navbar {
+    background: rgba(255, 255, 255, 0.9); backdrop-filter: blur(10px);
+    padding: 15px 8%; display: flex; justify-content: space-between; align-items: center;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05); position: sticky; top: 0; z-index: 1000;
+}
+.logo-container { display: flex; align-items: center; text-decoration: none; gap: 12px; }
+.logo-icon {
+    background: linear-gradient(135deg, var(--primary), var(--secondary));
+    color: white; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+    border-radius: 12px; font-weight: 800; font-size: 20px; box-shadow: 0 5px 15px rgba(99, 102, 241, 0.3);
+}
+.logo-text { font-size: 24px; font-weight: 800; color: var(--dark); letter-spacing: -1px; }
+.logo-text span { color: var(--primary); }
+.nav-links { display: flex; align-items: center; gap: 25px; }
+.nav-links a { text-decoration: none; color: var(--text-muted); font-size: 14px; font-weight: 600; transition: 0.3s; }
+.nav-links a:hover { color: var(--primary); }
+
+/* Layout */
+.container { width: 90%; max-width: 1200px; margin: 40px auto; flex: 1; }
+.card { background: var(--white); padding: 40px; border-radius: 24px; box-shadow: var(--shadow); border: 1px solid var(--border); max-width: 500px; margin: 0 auto; }
+.wide-card { max-width: 1100px; background: white; padding: 40px; border-radius: 24px; box-shadow: var(--shadow); }
+
+/* Buttons */
+button, .btn {
+    padding: 12px 24px; background: var(--dark); color: white; border: none; border-radius: 12px;
+    cursor: pointer; font-size: 14px; font-weight: 700; transition: 0.3s;
+}
+button:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(15, 23, 42, 0.2); }
+.btn-primary { background: linear-gradient(135deg, var(--primary), var(--primary-dark)); border:none; color:white; }
+
+/* Hero */
+.hero { background: radial-gradient(circle at top right, #4338ca, #1e1b4b); padding: 120px 20px; text-align: center; color: white; border-radius: 0 0 60px 60px; }
+.hero h1 { font-size: 56px; font-weight: 800; margin-bottom: 20px; letter-spacing: -2px; }
+.hero p { color: #c7d2fe; font-size: 20px; max-width: 650px; margin: 0 auto 40px; }
+
+/* Grid & Tables */
+.stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; margin-top: 40px; }
+.stat-box { background: white; padding: 40px 30px; border-radius: 24px; text-align: center; box-shadow: var(--shadow); border-top: 6px solid var(--primary); }
+.table-wrapper { overflow-x: auto; margin-top: 20px; }
+table { width: 100%; border-collapse: collapse; }
+th { background: #f8fafc; padding: 16px; text-align: left; font-size: 12px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; }
+td { padding: 16px; border-bottom: 1px solid #f1f5f9; font-size: 14px; }
+
+/* Badges */
+.badge { padding: 6px 14px; border-radius: 10px; font-size: 12px; font-weight: 700; }
+.status-Resolved { background: #e0e7ff; color: #4338ca; }
+.status-Lost { background: #fff1f2; color: #e11d48; }
+.status-Found { background: #faf5ff; color: #7c3aed; }
+
+/* Forms */
+input, select, textarea { width: 100%; padding: 14px; margin: 8px 0 20px; border: 1.5px solid var(--border); border-radius: 12px; background: #f9fafb; transition: 0.3s; outline: none; }
+input:focus { border-color: var(--primary); background: white; box-shadow: 0 0 0 4px rgba(99, 102, 241, 0.1); }
+label { font-size: 13px; font-weight: 700; color: var(--text-muted); }
+
+.footer { background: var(--dark); color: #94a3b8; padding: 40px; text-align: center; font-size: 14px; margin-top: 60px; }

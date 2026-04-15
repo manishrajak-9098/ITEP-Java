@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Bulb</title>
+</head>
+<style>
+     .active{
+     background-color: yellow;   
+    }
+</style>
+<body>
+    <div class="h-full w-full ">
+        <div class="bulb w-80 h-80 border-1 rounded-full"></div>
+        <button class="p-2 bg-blue-400 rounded-xl cursor-pointer text-white">Turn on</button>
+    </div>
+    <script>
+        let button=document.querySelector('button');
+        let bulb=document.querySelector('.bulb');
+        let on=false;
+        button.addEventListener('click',()=>{
+            if(on){
+                button.innerText='Turn ON'
+                on=false
+            }else{
+                 button.innerText='Turn OFF'
+                on=true
+            }
+            bulb.classList.toggle('active');
+        })
+    </script>
+</body>
+</html> 

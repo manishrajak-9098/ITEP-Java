@@ -1,0 +1,38 @@
+<script>
+
+	var arr=[1, 5, 8, 20, 15];
+	var n = arr.length;
+	for(var i=0; i<n; i++){
+		for(var j = i+1; j<n; j++){
+		if(arr[i] > arr[j]){
+			var temp = arr[i];
+			arr[i]= arr[j];
+			arr[j] = temp;
+}
+}
+}
+document.write("sort array : "+arr);
+	
+</script>
+
+
+<script>
+
+var arr = [12, 5, 8, 20, 15];
+var n = arr.length;
+
+for (var i = 0; i < n; i++) {
+    for (var j = i + 1; j < n; j++) {
+
+        if (arr[i] > arr[j]) {
+
+            var temp = arr[i];   // store arr[i]
+            arr[i] = arr[j];     // assign smaller value
+            arr[j] = temp;       // complete swap
+        }
+    }
+}
+
+document.write("Sorted array: " + arr[n-2]);
+
+</script>

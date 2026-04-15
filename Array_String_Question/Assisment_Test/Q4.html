@@ -1,0 +1,74 @@
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Validation</title>
+    <style>
+        body{
+           background-color: bisque;
+            text-align: center;
+            margin-top: 50px;
+        }
+        input{
+            padding: 8px;
+            margin: 10px;
+            width: 250px;
+        }
+        button{
+            padding: 10px 20px;
+            color: brown;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Validation Form</h2>
+
+    <form onsubmit="return myFun()">
+
+        <input type="text" id="mobile" placeholder="Enter Mobile Number" required><br>
+        <br>
+
+        <input type="text" id="email" placeholder="Enter Email" required><br>
+        <br>
+
+        <input type="password" id="password" placeholder="Enter Password" required><br>
+        <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+  <script>
+         function myFun(){
+
+    let mobile = document.getElementById("mobile");
+    let email = document.getElementById("email");
+    let password = document.getElementById("password");
+
+    let mobilePattern = /^[6-9]\d{9}$/;
+
+
+    if(!mobilePattern.test(mobile.value)){
+        alert("Invalid Mobile Number");
+        return false;
+    }
+
+    if(!(email.value.endsWith("@gmail.com") && email.value.indexOf("@") > 0)){
+        alert("Enter valid Gmail only");
+        return false;
+    }
+
+    if(password.value.length < 6){
+        alert("Password must be at least 6 characterrs");
+        return false;
+    }
+
+    alert("Form submit succesfully !");
+    return true; 
+}
+    </script>
+
+</body>
+</html>

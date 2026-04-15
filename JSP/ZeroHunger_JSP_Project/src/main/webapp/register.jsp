@@ -1,71 +1,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Register</title>
-<style>
-body {
-    font-family: Arial;
-    background: #f4f6f9;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-}
-.box {
-    background: white;
-    padding: 25px;
-    width: 380px;
-    border-radius: 8px;
-    box-shadow: 0 0 10px #aaa;
-}
-input, select, button {
-    width: 100%;
-    padding: 10px;
-    margin: 8px 0;
-}
-button {
-    background: #007bff;
-    color: white;
-    border: none;
-}
-</style>
+    <title>Register | Zero Hunger</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="navbar">
+        <h2>Zero Hunger</h2>
+        <a href="login.jsp">Login</a>
+    </div>
 
-<div class="box">
-    <h2>Register</h2>
+    <div class="main-content">
+        <div class="form-card" style="max-width: 550px;"> <!-- Register ke liye thoda bada -->
+            <h2>Create Account</h2>
+            <% if(request.getParameter("error")!=null){ %><p style="color:red; text-align:center; margin-bottom:10px;">Email already exists!</p><% } %>
+            
+            <form action="RegisterServlet" method="post">
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Full Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group" style="display: flex; gap: 15px;">
+                    <input type="password" name="password" placeholder="Password" required>
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="address" placeholder="Full Address" required>
+                </div>
+                <div class="form-group">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob" required>
+                </div>
+                <div class="form-group">
+                    <select name="gender" required>
+                        <option value="">Select Gender</option>
+                        <option>Male</option>
+                        <option>Female</option>
+                        <option>Other</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-green">Register Now</button>
+            </form>
+            
+            <p style="text-align:center; margin-top:20px; font-size:14px;">
+                Already have an account? <a href="login.jsp" style="color:#ea580c; font-weight:bold; text-decoration:none;">Login</a>
+            </p>
+        </div>
+    </div>
 
-    <% if(request.getParameter("error") != null) { %>
-        <p style="color:red;">Email already exists!</p>
-    <% } %>
-
-    <form action="RegisterServlet" method="post">
-        <input type="text" name="name" placeholder="Full Name" required>
-        <input type="email" name="email" placeholder="Email" required>
-        <input type="password" name="password" placeholder="Password" required>
-        <input type="text" name="address" placeholder="Address" required>
-        <input type="date" name="dob" required>
-
-        <select name="gender" required>
-            <option value="">Select Gender</option>
-            <option>Male</option>
-            <option>Female</option>
-            <option>Other</option>
-        </select>
-
-        <select name="role" required>
-            <option value="">Select Role</option>
-            <option value="DONOR">Donor</option>
-            <option value="NGO">NGO</option>
-        </select>
-
-        <button type="submit">Register</button>
-    </form>
-
-    <p style="text-align:center;">
-        <a href="login.jsp">Already have an account?</a>
-    </p>
-</div>
-
+    <%@ include file="footer.jsp" %>
 </body>
 </html>

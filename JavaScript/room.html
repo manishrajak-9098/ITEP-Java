@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Room</title>
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100%;
+        background: #f2f2f2;
+      }
+      .buttons {
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <img src="room.jpg" width="700" />
+    </div>
+    <div class="buttons">
+      <button class="border" onclick="light()">Light</button>
+      <button class="border" onclick="dark()">Dark</button>
+      <button class="border" onclick="medium()">Medium</button>
+    </div>
+
+    <script>
+      let room = document.querySelector("img");
+      function light() {
+        room.style.filter="brightness(1.5)"
+      }
+      function medium() {
+        room.style.filter="brightness(1)"
+      }
+      function dark() {
+        room.style.filter="brightness(.5)"
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,13 @@
+<script>
+var arr = [10, 20, 30, 40, 50];
+var index = 2;
+var value = 25;
+var newArr=[];
+for (var i=0; i<arr.length; i++){
+    if(i===index){
+        newArr.push(value);
+    }
+    newArr.push(arr[i]);
+}
+document.write(newArr);
+</script>

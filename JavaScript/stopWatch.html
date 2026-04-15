@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <title>Stop Watch</title>
+
+    <style>
+      body {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #f2f2f2;
+      }
+
+      .buttons {
+        margin-top: 20px;
+      }
+
+      button {
+        padding: 10px 20px;
+        font-size: 18px;
+        margin: 5px;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="main text-3xl font-bold">
+      <span class="hour">00</span> : <span class="minute">00</span> :
+      <span class="second">00</span>
+    </div>
+
+      <div class="buttons">
+        <button class="border" onclick="start()">Start</button>
+        <button class="border" onclick="stop()">Stop</button>
+        <button class="border" onclick="reset()">Reset</button>
+      </div>
+
+    <script>
+      let hour = document.getElementsByClassName("hour")[0];
+      let minute = document.getElementsByClassName("minute")[0];
+      let second = document.getElementsByClassName("second")[0];
+
+      let hr = 0;
+      let min = 0;
+      let sec = 0;
+
+      let interval = null;
+
+      function start() {
+        if (interval !== null) return;
+
+        interval = setInterval(() => {
+          sec++;
+
+          if (sec == 60) {
+            sec = 0;
+            min++;
+          }
+
+          if (min == 60) {
+            min = 0;
+            hr++;
+          }
+
+          second.innerText = sec.toString().padStart(2, "0");
+          minute.innerText = min.toString().padStart(2, "0");
+          hour.innerText = hr.toString().padStart(2, "0");
+        }, 1);
+      }
+
+      function stop() {
+        clearInterval(interval);
+        interval = null;
+      }
+
+      function reset() {
+        clearInterval(interval);
+        interval = null;
+
+        hr = 0;
+        min = 0;
+        sec = 0;
+
+        hour.innerText = "00";
+        minute.innerText = "00";
+        second.innerText = "00";
+      }
+    </script>
+  </body>
+</html>

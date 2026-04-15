@@ -1,32 +1,36 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Login</title>
+    <title>Login | Zero Hunger</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
-<body style="text-align:center; padding-top:50px;">
+<body>
+    <div class="navbar">
+        <h2>Zero Hunger</h2>
+        <a href="index.jsp">Home</a>
+    </div>
 
-    <h2>User Login</h2>
+    <div class="main-content">
+        <div class="form-card">
+            <h2>Login</h2>
+            <% if(request.getParameter("error")!=null){ %><p style="color:red; text-align:center; margin-bottom:10px;">Invalid Email or Password!</p><% } %>
+            
+            <form action="LoginServlet" method="post">
+                <div class="form-group">
+                    <input type="email" name="email" placeholder="Email Address" required>
+                </div>
+                <div class="form-group">
+                    <input type="password" name="password" placeholder="Password" required>
+                </div>
+                <button type="submit" class="btn btn-orange">Login</button>
+            </form>
+            
+            <p style="text-align:center; margin-top:20px; font-size:14px;">
+                Don't have an account? <a href="register.jsp" style="color:#166534; font-weight:bold; text-decoration:none;">Register</a>
+            </p>
+        </div>
+    </div>
 
-    <% if ("invalid".equals(request.getParameter("error"))) { %>
-        <p style="color:red;">Invalid Email or Password</p>
-    <% } %>
-
-    <% if ("registered".equals(request.getParameter("msg"))) { %>
-        <p style="color:green;">Registration successful. Please login.</p>
-    <% } %>
-
-    <% if ("role_updated".equals(request.getParameter("msg"))) { %>
-        <p style="color:green;">Role updated successfully. Please login.</p>
-    <% } %>
-
-    <form action="LoginServlet" method="post"
-          style="display:inline-block; border:1px solid #ccc; padding:20px;">
-        <input type="email" name="email" placeholder="Email" required><br><br>
-        <input type="password" name="password" placeholder="Password" required><br><br>
-        <button type="submit">Login</button>
-    </form>
-
-    <p><a href="register.jsp">New User? Register</a></p>
-
+    <%@ include file="footer.jsp" %>
 </body>
 </html>

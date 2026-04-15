@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GST Table</title>
+
+<style>
+body{
+display:flex;
+flex-direction:column;
+align-items:center;
+background:#f2f2f2;
+font-family:Arial;
+}
+
+table{
+border-collapse:collapse;
+margin-top:20px;
+}
+
+table,td,th{
+padding:10px;
+border:1px solid black;
+}
+
+button{
+margin-top:15px;
+padding:8px 15px;
+cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<h2>GST Billing Table</h2>
+
+<table id="billTable">
+<thead>
+<tr>
+<th>S.no</th>
+<th>Item</th>
+<th>Price</th>
+<th>Quantity</th>
+<th>Total (GST incl.)</th>
+</tr>
+</thead>
+
+<tbody id="tableBody">
+
+<tr>
+<td>1</td>
+<td><input type="text"></td>
+<td><input type="number" class="price" value="0"></td>
+<td><input type="number" class="qty" value="0"></td>
+<td class="rowTotal">0</td>
+</tr>
+
+</tbody>
+</table>
+
+<button onclick="addRow()">Add Item</button>
+
+<h3>Grand Total : ₹<span id="grandTotal">0</span></h3>
+
+<script>
+
+const GST = 0.18;
+
+function calculateTotal(){
+
+let rows = document.querySelectorAll("#tableBody tr");
+let grandTotal = 0;
+
+rows.forEach((row,index)=>{
+
+row.children[0].innerText = index+1;
+
+let price = Number(row.querySelector(".price").value);
+let qty = Number(row.querySelector(".qty").value);
+
+let total = price * qty;
+let gst = total * GST;
+
+let finalTotal = total + gst;
+
+row.querySelector(".rowTotal").innerText = finalTotal.toFixed(2);
+
+grandTotal += finalTotal;
+
+});
+
+document.getElementById("grandTotal").innerText = grandTotal.toFixed(2);
+
+}
+
+function addRow(){
+
+let tableBody = document.getElementById("tableBody");
+
+let row = document.createElement("tr");
+
+row.innerHTML = `
+<td></td>
+<td><input type="text"></td>
+<td><input type="number" class="price" value="0"></td>
+<td><input type="number" class="qty" value="0"></td>
+<td class="rowTotal">0</td>
+`;
+
+tableBody.appendChild(row);
+
+row.querySelectorAll("input").forEach(input=>{
+input.addEventListener("input",calculateTotal);
+});
+
+calculateTotal();
+
+}
+
+document.querySelectorAll("input").forEach(input=>{
+input.addEventListener("input",calculateTotal);
+});
+
+calculateTotal();
+
+</script>
+
+</body>
+</html>

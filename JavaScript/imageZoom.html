@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Image Zoom In & Zoom Out</title>
+
+<style>
+body{
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    height:100vh;
+    background:#f2f2f2;
+}
+
+.container{
+    width:400px;
+    height:400px;
+    overflow:hidden;
+    border:2px solid #ccc;
+}
+
+.container img{
+    width:100%;
+    height:100%;
+    transition:transform 0.3s ease;
+}
+
+.buttons{
+    margin-top:20px;
+}
+
+button{
+    padding:10px 20px;
+    font-size:18px;
+    margin:5px;
+    cursor:pointer;
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+    <img id="image"
+    src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=500&auto=format&fit=crop&q=60"
+    />
+</div>
+
+<div class="buttons">
+    <button onclick="zoomIn()">Zoom In +</button>
+    <button onclick="zoomOut()">Zoom Out -</button>
+</div>
+
+<script>
+
+let scale = 1;
+
+function zoomIn(){
+    scale += 0.2;
+    document.getElementById("image").style.transform = "scale(" + scale + ")";
+}
+
+function zoomOut(){
+    if(scale > 0.4){
+        scale -= 0.2;
+        document.getElementById("image").style.transform = "scale(" + scale + ")";
+    }
+}
+
+</script>
+
+</body>
+</html>
